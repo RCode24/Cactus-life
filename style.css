@@ -1,0 +1,143 @@
+/* variables any variable we use here will apply to the stylesheet anywhere we're not restricted to certain elements*/
+:root {
+  --primary: #ddd;
+  --dark: #333;
+  --light: #fff;
+  --shadow: 0 1px 5px rgba(104,104,104,0.8);
+}
+html {
+  box-sizing:border-box;/* so that if paddin or anything is used it doesn't affect the width of the element*/
+  font-family:arial, helvetica, sans-serif;
+  color:var(--dark)
+}
+body {
+  background:#ccc;
+  margin: 30px 50px;
+  line-height:1.4;
+}
+.btn {
+  background: var(--dark);
+  color: var(--light);
+  padding: 0.6rem 1.3rem; /*1rem is basically 16px*/
+  text-decoration:none;
+  border:0;
+}
+img {
+  max-width:100%;
+}
+.container {
+  display:grid;
+  grid-gap:20px;
+}
+/*navbar*/
+.navbar ul {
+  display:grid;
+  grid-gap:20px;
+  padding:0;
+  list-style:none;
+  /*grid-template-columns: 1fr 1fr 1fr 1fr;*/
+  grid-template-columns: repeat(4, 1fr);
+}
+.navbar li{
+  background:var(--primary);
+  display:block;
+  padding: 0.8rem;
+  text-align:center;
+  color:var(--dark);
+  text-transform:uppercase;
+  font-size:1rem;
+  box-shadow: var(--shadow);
+}
+.navbar li:hover {
+  background:var(--dark);
+  color:var(--light);
+}
+
+/*top boxes next to showcase area*/
+.container1 {
+  display:grid;
+  grid-gap:20px;
+  grid-template-columns: 4fr repeat(2,2fr);
+  grid-template-areas:
+  'showcase showcase  box1'
+  'showcase showcase  box2';
+}
+/*showcase*/
+.showcase {
+  grid-area:showcase;
+  min-height:400px;
+  background: url(img/main.jpg) no-repeat;
+  background-size:cover;
+  background-position:center;
+  padding:3rem;
+  display:flex; /*everything goes horizontal*/
+  flex-direction:column;
+  align-items:start;
+  justify-content:center;
+  box-shadow:var(--shadow);
+}
+.showcase h1 {
+  font-size:4rem;
+  margin-bottom:0;
+  color: var(--light);
+}
+.showcase p {
+  font-size:1.1rem;
+  color:var(--light);
+  margin-top:0;
+}
+.box1 {
+  grid-area:box1;
+}
+.box2 {
+  grid-area:box2;
+}
+/*upper boxes*/
+.upper-box {
+  background:var(--primary);
+  display:grid;
+  justify-content:center;
+  align-items:center;
+  box-shadow:var(--shadow);
+  padding:1.5rem;
+}
+.upper-box .price {
+  font-size:2.5rem;
+}
+/* bottom boxes*/
+.boxes {
+  display:grid;
+  grid-gap:20px;
+  grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+}
+.box {
+  background:var(--primary);
+  text-align:center;
+  padding:1.5rem 2rem;
+  box-shadow:var(--shadow);
+}
+.information {
+  background:var(--primary);
+  box-shadow:var(--shadow);
+  display:grid;
+  grid-gap:30px;
+  grid-template-columns:repeat(2, 1fr);
+  padding:3rem;
+}
+/*image section*/
+.imgs {
+  display:grid;
+  grid-gap:20px;
+  grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+}
+.imgs img {
+  width:100%;
+  box-shadow:var(--shadow);
+}
+footer {
+  margin-top:2rem;
+  background: var(--dark);
+  color:var(--light);
+  text-align:center;
+  padding:1rem;
+}
